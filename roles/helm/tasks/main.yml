@@ -1,0 +1,30 @@
+---
+ - name: Add key
+   apt_key: 
+        url: https://baltocdn.com/helm/signing.asc
+        state: present
+
+ - name: Ensure the repository is configured
+   apt_repository: 
+        repo: deb https://baltocdn.com/helm/stable/debian/ all main
+        state: present
+
+ - name:  Update cache
+   apt:
+        update_cache: yes
+        state: latest
+
+ - name: Install helm
+   apt:
+        name: helm
+        state: present
+        
+ - name: Install completion
+   shell: |
+     echo 'source /usr/share/bash-completion/bash_completion' >>/var/lib/jenkins/.bashrc
+     echo 'source <(kubectl completion bash)' >>/var/lib/jenkins/.bashrc
+     echo 'alias k=kubectl' >>/var/lib/jenkins/.bashrc
+     echo 'complete -o default -F __start_kubectl k' >>/var/lib/jenkins/.bashrc
+   
+        
+

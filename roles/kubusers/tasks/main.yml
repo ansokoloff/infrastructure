@@ -1,0 +1,14 @@
+---
+ - name: create the jenkins user account
+   user: name=jenkins append=yes state=present createhome=yes shell=/bin/bash home=/var/lib/jenkins
+
+ - name: allow 'jenkins' to use sudo without needing a password
+   lineinfile:
+     dest: /etc/sudoers
+     line: 'jenkins ALL=(ALL) NOPASSWD: ALL'
+     validate: 'visudo -cf %s'
+
+ - name: set up authorized keys for the jenkins user
+   authorized_key: user=jenkins key="{{item}}"
+   with_file:
+      - ~/.ssh/id_rsa.pub

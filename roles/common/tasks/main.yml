@@ -1,0 +1,21 @@
+---
+ - name:  Install common software 
+   apt:
+    pkg:
+    - mc
+    - net-tools
+    - openjdk-11-jre
+    - acl
+    state: present
+    update_cache: yes
+
+ - name: Create tmp directory
+   ansible.builtin.file:
+    path: /tmp/target
+    state: directory
+    mode: 0777       
+
+ - name: Install env
+   ansible.builtin.git:
+    repo: https://github.com/ansokoloff/myenviroinments.git
+    dest: /home/arctic/enviroinmemt
