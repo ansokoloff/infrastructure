@@ -1,7 +1,7 @@
 ---
  - hosts: 
    - localhost
-   - app
+   - dev
    gather_facts: true
    become: yes
    roles:
@@ -21,7 +21,7 @@
 
    
  - hosts: 
-   - app
+   - dev
    - kuber
    gather_facts: true
    become: yes
