@@ -1,18 +1,10 @@
 ---
- - hosts: 
-   - localhost
-   - dev
-   - kuber
-   gather_facts: true
-   become: yes
-   roles:
-   - docker
-
  - hosts: all
    gather_facts: true
    become: yes
-   roles: 
+   roles:
    - common
+   - docker
 
  - hosts: localhost
    gather_facts: true
