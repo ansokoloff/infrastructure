@@ -158,7 +158,7 @@ resource "google_compute_instance" "control" {
       "echo ${google_compute_instance.app.network_interface.0.network_ip} >> hosts",
       "echo '[kuber]' >> hosts",
       "echo ${google_compute_instance.kuber.network_interface.0.network_ip} >> hosts",
-      # "cd /home/arctic/sprint1 && ansible-playbook global.yaml"
+      "cd /home/arctic/infrastructure && ansible-playbook global.yaml"
     ]
   }  
 }
