@@ -1,26 +1,25 @@
-# Дипломный проект 
+# Graduation project
 
-Для запуска необходимо откорректировать id проекта в GCP и имя бакета для бэкенда. 
+To start, you need to adjust the project id in GCP and the name of the bucket for the backend.
 
-По желанию можно откорректировать другие переменные.
+Other variables can be adjusted if desired.
 
-Команды terraform init, terraform plan, terraform apply -auto-approve.
+Terraform init, terraform plan, terraform apply -auto-approve commands.
 
-Дальше все происходит автоматически.
+Then everything happens automatically.
 
-Никаких сенситивных данных нет.
+There is no sensitive data.
 
-Ключи генерируются во время инициализации окружения и раскладываются в нужные места.
+The keys are generated during the initialization of the environment and are laid out in the right places.
 
-Приватный ключ (для дальнейшего доступа к окружению) копируется на ту машину, откуда был запущен терраформ.
+The private key (for further access to the environment) is copied to the machine from where the terraform was launched.
 
-После разворачивания серверов, происходит установка ansible, создание инвентори и конфигурация.
-Инвентори создается на данных, полученных из ouptut terraform,
-Также копируется плейбук Ansible из репозитория.
+After the servers are deployed, ansible is installed, inventory is created, and configuration takes place.
+Inventory is created on the data received from ouptut terraform,
+The Ansible playbook is also copied from the repository.
 
-Ansible использует роли. Производится доустановка любимого софта, установка докера, установка Jenkins, создание пользователей для Jenkins (потому что srv и kuber используются как ноды для Jenkins), разворачивание k8s и инструментов для работы с ним.
+Ansible uses roles. The installation of your favorite software, the installation of docker, the installation of Jenkins, the creation of users for Jenkins (because dev and kuber are used as nodes for Jenkins), the deployment of k8s and tools for working with it.
 
 
-Время полного автоматического разворачивания необходимого окружения - 6 минут.
-Репозиторий этого шага со всеми файлами - текущий.
-
+The time of full automatic deployment of the necessary environment is 6 minutes.
+The repository of this step with all files is the current one.
